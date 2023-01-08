@@ -1,0 +1,5 @@
+[submodule "client"]
+	url = https://github.com/Riyaancode/client.git
+[submodule "client-submodule"]
+	path = client-submodule
+	url = https://github.com/Riyaancode/mern-socialmedia-app
