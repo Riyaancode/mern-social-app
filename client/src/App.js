@@ -34,7 +34,7 @@ function App() {
 
       <AuthProvider>
         <BrowserRouter>
-          <Navbar />
+         
           <Routes>
       
             <Route path='/' element={

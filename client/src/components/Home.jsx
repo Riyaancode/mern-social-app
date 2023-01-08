@@ -16,18 +16,21 @@ function Home() {
           <img src={require("../img/objects.png")} className="position-absolute start-50" height="620" alt="character" />
 
         </div>
-        <div className="right d-flex align-items-center w-50 justify-content-center text-end flex-column">
-          <h1 className="display-4 mb-4"><b> SOCIAL APP </b> <br /> CONECPT</h1>
-          <div className='d-flex justify-content-between align-items-center'>
-           
-              <NavLink className="nav-link fs-5" to='/signup' >
-               Create Account
+        <div className="right d-flex align-items-center w-50 justify-content-center text-end ">
+          <div className='d-flex flex-column  align-items-end'>
+            <h1 className="display-4 mb-4"><b> SOCIAL APP </b> <br /> CONECPT</h1>
+            <div className='d-flex '>
+
+
+              <NavLink className="nav-link mx-2 fs-5 mainbtn" to='/login' >
+                Login
               </NavLink>
-           
-              <NavLink className="nav-link fs-5" to='/login' >
-                Signin
+              <NavLink className="nav-link mx-2 fs-5 mainbtn" to='/signup' >
+                Signup
               </NavLink>
-          
+
+
+            </div>
           </div>
         </div>
       </div>

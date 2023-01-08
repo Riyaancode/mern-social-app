@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useAuth } from "../context/AuthProvider";
+import Navbar from "./Navbar";
 
 
 function Feed(props) {
@@ -173,6 +174,7 @@ function Feed(props) {
 
     return (
         <>
+         <Navbar />
             <div className="container-fluid">
                 <div className="row my-3">
                     <div className="col-12 col-md-6 col-xl-3">

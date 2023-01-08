@@ -86,19 +86,31 @@ export const Signup = () => {
             <img src={require("../img/objects.png")} className="position-absolute start-50" height="620" alt="character" />
 
           </div>
-          <div className="right d-flex align-items-center w-50 justify-content-center px-5">
+          <div className="right d-flex flex-column align-items-center w-50 justify-content-center px-5">
+          <div class="back-button">
+            <NavLink to="/" >
+            <div className="arrow-wrap">
+              <span className="arrow-part-1"></span>
+              <span className="arrow-part-2"></span>
+              <span className="arrow-part-3"></span>
+            </div>
+            </NavLink>
+          </div>
+          <h2 className=' fs-1 fw-bold'>Create Your Account</h2>
             <form method="POST" className='w-100' encType="multipart/form-data">
 
               <div className="mb-4 w-100" >
 
                 <div className="row w-100">
-                  <div className="col">
-                    <label htmlFor="firstName" className="form-label">First Name</label>
-                    <input type="text" className="form-control" id="firstName" placeholder="First name" aria-label="First name" value={userdata.firstName} name='firstName' onChange={handleInputs} />
+                  <div className="col form__group field mx-3">
+                    
+                    <input type="text" className="form__field" id="firstName" placeholder="First name" aria-label="First name" value={userdata.firstName} name='firstName' onChange={handleInputs} />
+                    <label htmlFor="firstName" className="form__label">First Name</label>
                   </div>
-                  <div className="col">
-                    <label htmlFor="lastName" className="form-label">Last Name</label>
-                    <input type="text" className="form-control" id="lastName" placeholder="Last name" aria-label="Last name" value={userdata.lastName} name='lastName' onChange={handleInputs} />
+                  <div className="col form__group field mx-3">
+                    
+                    <input type="text" className="form__field" id="lastName" placeholder="Last name" aria-label="Last name" value={userdata.lastName} name='lastName' onChange={handleInputs} />
+                    <label htmlFor="lastName" className="form__label">Last Name</label>
                   </div>
                 </div>
 
@@ -107,28 +119,32 @@ export const Signup = () => {
               <div className='mb-4 w-100'>
               <div className='row w-100'>
 
-                <div className="col">
-                  <label htmlFor='email' className="form-label">Email</label>
-                  <input type='email' className='form-control' id='email' value={userdata.email} name='email' onChange={handleInputs} />
+                <div className="col form__group field mx-3">
+                  
+                  <input type='email' className='form__field' id='email' value={userdata.email} placeholder="Email" name='email' onChange={handleInputs} />
+                  <label htmlFor='email' className="form__label">Email</label>
                 </div>
 
-                <div className="col" >
-                  <label htmlFor='password' className="form-label">Password</label>
-                  <input type='password' className='form-control' id='password' name='password' value={userdata.password} onChange={handleInputs} />
+                <div className="col form__group field mx-3" >
+                  
+                  <input type='password' className='form__field' id='password' name='password' placeholder="Password" value={userdata.password} onChange={handleInputs} />
+                  <label htmlFor='password' className="form__label">Password</label>
                 </div>
               </div>
               </div>
 
             <div className='mb-4 w-100'>
               <div className='row w-100'>
-              <div className="col">
-                <label htmlFor="formFile" className="form-label">Profile Photo</label>
-                <input className="form-control" type="file" id="formFile" onChange={(e) => setImage(e.target.files[0])} />
+              <div className="col form__group field mx-3">
+                
+                <input className="form__field" type="file" id="formFile" placeholder="Your Profile Photo" onChange={(e) => setImage(e.target.files[0])} />
+                <label htmlFor="formFile" className="form__label">Profile Photo</label>
               </div>
 
-              <div className="col">
-                <label htmlFor='dob' className="form-label">Date of Birth</label>
-                <input placeholder="Select date" type="date" id="dob" className="form-control" name='dateofBirth' value={userdata.dateofBirth} onChange={handleInputs} />
+              <div className="col form__group field mx-3">
+                
+                <input placeholder="Select date" type="date" id="dob" className="form__field" name='dateofBirth' value={userdata.dateofBirth} onChange={handleInputs} />
+                <label htmlFor='dob' className="form__label">Date of Birth</label>
               </div>
               </div>
               </div>
@@ -136,13 +152,15 @@ export const Signup = () => {
 
               <div className="mb-4 w-100">
                 <div className="row w-100">
-                  <div className="col">
-                    <label htmlFor="location" className="form-label">Location </label>
-                    <input type="text" className="form-control" id="location" aria-label="location " value={userdata.location} name='location' onChange={handleInputs} />
+                  <div className="col form__group field mx-3">
+                    
+                    <input type="text" className="form__field" placeholder="Location" id="location" aria-label="location " value={userdata.location} name='location' onChange={handleInputs} />
+                    <label htmlFor="location" className="form__label">Location </label>
                   </div>
-                  <div className="col">
-                    <label htmlFor="occupation" className="form-label">Occupation</label>
-                    <input type="text" className="form-control" id="occupation" aria-label="occupation" value={userdata.occupation} name='occupation' onChange={handleInputs} />
+                  <div className="col form__group field mx-3">
+                    
+                    <input type="text" className="form__field" placeholder="Occupation" id="occupation" aria-label="occupation" value={userdata.occupation} name='occupation' onChange={handleInputs} />
+                    <label htmlFor="occupation" className="form__label">Occupation</label>
                   </div>
                 </div>
               </div>
@@ -152,8 +170,10 @@ export const Signup = () => {
 
 
 
-              <button className="btn btn-primary" onClick={handleSignup}>Signup</button>
+              <button className="btn btn-primary w-100 my-4" onClick={handleSignup}>Signup</button>
+              
             </form>
+             <span> Already have an account? <NavLink className="signuplink fw-bold" to='/login'>Signin</NavLink></span>
           </div>
         </div>
       </main>

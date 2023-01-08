@@ -37,18 +37,41 @@ main{
   color: #272369;
 }
 
-.right a{
+.btn{
   color: #fff !important;
   background-color: #272369 !important;
   padding: 5px 10px !important;
   transition: all 0.4s;
-}
-.right div{
-  height: 54px;
-    width: 267px;
+  border: 2px solid #272369;
 }
 
-.right a:hover{
+.btn:hover{
+  color: #272369 !important;
+  background-color: transparent !important;
+  border: 2px solid #272369;
+  padding: 5px 10px !important;
+}
+
+.signuplink{
+  text-decoration: none;
+  color: #272369 !important;
+  
+}
+
+.mainbtn{
+  color: #fff !important;
+  background-color: #272369 !important;
+  padding: 5px 10px !important;
+  transition: all 0.4s;
+  border: 2px solid #272369;
+  
+}
+/* .right div{
+  height: 54px;
+    width: 267px;
+} */
+
+.mainbtn:hover{
   color: #272369 !important;
   background-color: transparent !important;
   border: 2px solid #272369;
@@ -62,9 +85,7 @@ main{
 
 }
 
-.nav-link {
-  padding: 2px 7px !important;
-}
+
 
 .navbar .nav-link:hover,
 .navbar .nav-link:focus {
@@ -108,6 +129,132 @@ main{
   top: -104px !important;
   width: 680px;
 }
+
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #272369;
+  outline: 0;
+  font-size: 1.3rem;
+  
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #272369;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #400eb3, #c601cc);
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #272369;
+  font-weight: 700;
+}
+
+.form__field:required,
+.form__field:invalid {
+  box-shadow: none;
+}
+
+
+
+
+.back-button {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 47px;
+  right: 20px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: #272369 2px solid;
+  overflow: hidden;
+  transition: background 0.3s ease;
+
+}
+.back-button.back .arrow-wrap {
+  left: -50%;
+}
+.back-button:hover {
+  background: #272369;
+}
+.back-button:hover .arrow-wrap span {
+  background: #fff;
+}
+.back-button .arrow-wrap {
+  display: block;
+  position: absolute;
+  height: 70%;
+  width: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: left 0.3s ease;
+}
+.back-button .arrow-wrap span {
+  height: 1px;
+  left: 0;
+  top: 50%;
+  background: #272369;
+  position: absolute;
+  display: block;
+  transition: background 0.3s ease;
+}
+.back-button .arrow-wrap .arrow-part-1 {
+  width: 100%;
+  transform: translate(0, -50%);
+}
+.back-button .arrow-wrap .arrow-part-2 {
+  width: 60%;
+  transform: rotate(-45deg);
+  transform-origin: 0 0;
+}
+.back-button .arrow-wrap .arrow-part-3 {
+  width: 60%;
+  transform: rotate(45deg);
+  transform-origin: 0 0;
+}
+
+
+
+
 
 /* Change navbar styling on small viewports */
 @media (max-width: 991.98px) {
