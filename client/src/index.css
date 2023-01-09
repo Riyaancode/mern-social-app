@@ -10,7 +10,7 @@ body,
 }
 
 body{
-  background-color: #ecf1ff;
+  background-color: #f0f6f8;
 }
 
 .shadow{
@@ -251,6 +251,10 @@ main{
   transform: rotate(45deg);
   transform-origin: 0 0;
 }
+
+
+
+
 
 
 
