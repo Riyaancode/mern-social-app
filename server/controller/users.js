@@ -14,6 +14,21 @@ const getUser = async (req, res) => {
 }
 
 
+const serachUser = async (req, res) => {
+    try {
+        const { q } = req.query;
+        console.log(q)
+        
+        const user = await Users.find({  $text: { $search: `"${q}"`  } });
+        console.log(user)
+        res.status(200).json(user)
+
+    } catch (error) {
+        res.status(404).json({ message: error.message })
+    }
+}
+
+
 const getUserFriends = async (req, res) => {
     try {
         const { id } = req.params;
@@ -70,4 +85,4 @@ const addRemoveFriend = async (req, res) => {
 }
 
 
-module.exports = { getUser, getUserFriends, addRemoveFriend }
+module.exports = { getUser, getUserFriends, addRemoveFriend, serachUser }

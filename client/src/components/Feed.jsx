@@ -63,29 +63,24 @@ function Feed(props) {
 
         } catch (error) {
             console.log("ERROR", error);
-            // setErrors(error.response.data);
         }
     };
 
-    const [friendrequest, setFriendRequest] = useState([])
-    // console.log(friendrequest)
-    const fetchFriendReq = async () => {
-        // try {
-        //     const res = await axios.get(`http://localhost:4000/friendrequest/${_id}`);
-        //     console.log(res);
 
-        // } catch (error) {
-        //     console.log("ERROR", error);
-        //     // setErrors(error.response.data);
-        // }
+
+
+    const [friendrequest, setFriendRequest] = useState([])
+    
+    const fetchFriendReq = async () => {
+    
 
         axios.get(`http://localhost:4000/friendrequest/${_id}`)
             .then(response => {
-                // handle success
+                
                 setFriendRequest(response.data);
             })
             .catch(error => {
-                // handle error
+             
                 console.log(error);
             });
     };

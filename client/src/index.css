@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+
+*{
+  padding: 0px;
+  margin: 0px;
+}
 html,
 body,
 #root,
@@ -9,35 +14,41 @@ body,
   font-family: 'Inter', sans-serif !important;
 }
 
-body{
+body {
   background-color: #f0f6f8;
 }
 
-.shadow{
+.shadow {
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
-main{
+main {
+
+
+  height: 100vh;
+  background-position-y: -130px;
+
+}
+
+.left {
+  background-repeat: no-repeat;
+  background-size: cover;
   background-image: url("img/landing-bg_Mesa\ de\ trabajo\ 1.png");
-   background-size: cover;
-   height:100vh;
-   background-position-y: -130px;
-   background-repeat: no-repeat;
 }
 
 .navbar {
   transition: all 0.4s;
 }
 
-.display-4 b{
+.display-4 b {
   font-weight: bold;
 }
 
-.right{
+.right {
   color: #272369;
 }
 
-.btn{
+.btn {
   color: #fff !important;
   background-color: #272369 !important;
   padding: 5px 10px !important;
@@ -45,33 +56,34 @@ main{
   border: 2px solid #272369;
 }
 
-.btn:hover{
+.btn:hover {
   color: #272369 !important;
   background-color: transparent !important;
   border: 2px solid #272369;
   padding: 5px 10px !important;
 }
 
-.signuplink{
+.signuplink {
   text-decoration: none;
   color: #272369 !important;
-  
+
 }
 
-.mainbtn{
+.mainbtn {
   color: #fff !important;
   background-color: #272369 !important;
   padding: 5px 10px !important;
   transition: all 0.4s;
   border: 2px solid #272369;
-  
+
 }
+
 /* .right div{
   height: 54px;
     width: 267px;
 } */
 
-.mainbtn:hover{
+.mainbtn:hover {
   color: #272369 !important;
   background-color: transparent !important;
   border: 2px solid #272369;
@@ -121,10 +133,10 @@ main{
 }
 
 .pe-nav {
-  padding-right: 14rem!important;
+  padding-right: 14rem !important;
 }
 
-.flare{
+.flare {
   mix-blend-mode: plus-lighter;
   top: -104px !important;
   width: 680px;
@@ -146,7 +158,7 @@ main{
   border-bottom: 2px solid #272369;
   outline: 0;
   font-size: 1.3rem;
-  
+
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
@@ -156,7 +168,7 @@ main{
   color: transparent;
 }
 
-.form__field:placeholder-shown ~ .form__label {
+.form__field:placeholder-shown~.form__label {
   font-size: 1.3rem;
   cursor: text;
   top: 20px;
@@ -178,7 +190,8 @@ main{
   border-image: linear-gradient(to right, #400eb3, #c601cc);
   border-image-slice: 1;
 }
-.form__field:focus ~ .form__label {
+
+.form__field:focus~.form__label {
   position: absolute;
   top: 0;
   display: block;
@@ -209,15 +222,19 @@ main{
   transition: background 0.3s ease;
 
 }
+
 .back-button.back .arrow-wrap {
   left: -50%;
 }
+
 .back-button:hover {
   background: #272369;
 }
+
 .back-button:hover .arrow-wrap span {
   background: #fff;
 }
+
 .back-button .arrow-wrap {
   display: block;
   position: absolute;
@@ -228,6 +245,7 @@ main{
   transform: translate(-50%, -50%);
   transition: left 0.3s ease;
 }
+
 .back-button .arrow-wrap span {
   height: 1px;
   left: 0;
@@ -237,15 +255,18 @@ main{
   display: block;
   transition: background 0.3s ease;
 }
+
 .back-button .arrow-wrap .arrow-part-1 {
   width: 100%;
   transform: translate(0, -50%);
 }
+
 .back-button .arrow-wrap .arrow-part-2 {
   width: 60%;
   transform: rotate(-45deg);
   transform-origin: 0 0;
 }
+
 .back-button .arrow-wrap .arrow-part-3 {
   width: 60%;
   transform: rotate(45deg);
@@ -263,10 +284,49 @@ main{
 /* Change navbar styling on small viewports */
 @media (max-width: 991.98px) {
   .navbar {
-      background: #fff;
+    background: #fff;
   }
 
-  .navbar .navbar-brand, .navbar .nav-link {
-      color: #555;
+  .navbar .navbar-brand,
+  .navbar .nav-link {
+    color: #555;
   }
+}
+
+
+@media (max-width: 1042px) {
+  .left {
+    display: none;
+  }
+
+  .right {
+    text-align: center !important;
+    flex: 0 0 auto;
+    width: 100%;
+    
+  }
+.right-signup{
+  text-align: center !important;
+  flex: 0 0 auto;
+  width: 100%;
+  height: max-content !important;
+}
+  .right div {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+.hide{
+  display: none;
+}
+  .right form div{
+  display: block !important;
+  width: 100%;
+  padding: 0px !important;
+  margin-bottom: 20px;
+  }
+  .right form{
+   
+    padding: 0px !important;
+    }
+
 }

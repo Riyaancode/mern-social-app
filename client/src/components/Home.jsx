@@ -9,14 +9,14 @@ function Home() {
   return (
 
     <main>
-      <div className="d-flex justify-content-between h-100">
-        <div className="left position-relative w-25">
-          <img src={require("../img/flare.png")} className="position-absolute flare" height="640" alt="character" />
-          <img src={require("../img/character.png")} className="position-absolute" height="625" alt="character" />
-          <img src={require("../img/objects.png")} className="position-absolute start-50" height="620" alt="character" />
+      <div className="row h-100 w-100 m-0">
+        <div className="left p-0 col-6">
+          <img src={require("../img/flare.png")} className="position-absolute flare " height="640" alt="character" />
+          <img src={require("../img/character.png")} className="position-absolute " height="625" alt="character" />
+          <img src={require("../img/objects.png")} className="position-absolute " height="620" alt="character" />
 
         </div>
-        <div className="right d-flex align-items-center w-50 justify-content-center text-end ">
+        <div className="right col-6 d-flex align-items-center justify-content-center text-end ">
           <div className='d-flex flex-column  align-items-end'>
             <h1 className="display-4 mb-4"><b> SOCIAL APP </b> <br /> CONECPT</h1>
             <div className='d-flex '>

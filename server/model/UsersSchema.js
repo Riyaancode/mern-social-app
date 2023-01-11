@@ -40,4 +40,6 @@ const UsersSchema = new mongoose.Schema({
 
 const Users = mongoose.model("users", UsersSchema);
 
+Users.createIndexes();
+
 module.exports = Users;

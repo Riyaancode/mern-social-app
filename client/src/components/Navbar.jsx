@@ -1,86 +1,92 @@
 
-import { NavLink } from 'react-router-dom'
+import axios from "axios";
 import { useAuth } from '../context/AuthProvider'
 import React, { useState, useEffect } from 'react'
 
 function Navbar() {
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    if (query.length === 0 || query.length > 2) {
+      searchUser()
+    }
+
+  }, [query])
 
   const authLocal = useAuth()
 
 
   const user = JSON.parse(localStorage.getItem("user"));
 
+  const [searchData, setSearchData] = useState([]);
+ 
+
+  const searchUser = async () => {
+    try {
+      const res = await axios.get(`http://localhost:4000/users?q=${query}`);
+      setSearchData(res.data);
+
+    } catch (error) {
+      console.log("ERROR", error);
+      // setErrors(error.response.data);
+    }
+  };
 
   return (
 
     <>
 
 
-      {/* <nav className={`navbar navbar-expand-lg  py-3`}>
-  <div className="container-fluid">
-    
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse justify-content-between " id="navbarSupportedContent">
-
-      <ul className="navbar-nav mb-2 mb-lg-0 ">
-        <li className="nav-item mx-3">
-        <NavLink className="nav-link fs-5" to='/' >
-                  Home
-                </NavLink>
-        </li>
-
-       {!authLocal.user &&( <>
-        <li className="nav-item mx-3">
-        <NavLink className="nav-link fs-5" to='/login' >
-                    Login
-                  </NavLink>
-        </li>
-        <li className="nav-item mx-3">
-          
-        <NavLink className="nav-link fs-5" to='/signup' >
-                    Signup
-                  </NavLink>
-        </li> 
-        </> ) }
-        
-
-        {authLocal.user &&( <>
-        <li className="nav-item">
-          
-       <button onClick={()=>{authLocal.logout()} }>Logout</button>
-                   
-                  
-        </li>
-        </> ) }
-      
-        
-      </ul>
-    </div>
-  </div>
-</nav> */}
 
 
-      <header class="py-3 mb-4 border-bottom bg-white">
-        <div class="container d-flex flex-wrap justify-content-between">
+      <header className="py-3 mb-4 border-bottom bg-white border-0 shadow">
+        <div className="container d-flex flex-wrap justify-content-between">
 
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
-            <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
+          <form className=" mb-3 mb-lg-0" role="search">
+            <input type="search" className="form-control" placeholder="Search..." onChange={(e) => setQuery(e.target.value)} aria-label="Search" />
+            
+            <div className="card-body bg-white position-absolute z-1">
+              {
+
+
+                searchData.map((data) => (
+
+                  <div className="card border-0 shadow-sm mb-3" key={data._id}>
+
+                    <div className="p-2">
+                      <div className="d-flex justify-content-start">
+                        <div className="d-flex align-items-center">
+                          <img src={require("../uploads/" + data.image)} className="rounded-circle" width="45" alt="" />
+                          <div>
+                            <h5 className="mb-0 mx-2" >{`${data.firstName} ${data.lastName}`}</h5>
+                            <span className="mb-0 mx-2" >{`${data.location}`}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))
+
+
+
+
+
+              }
+            </div>
           </form>
-          <a href="/#" class="d-flex align-items-center mb-3 mb-lg-0 text-dark text-decoration-none">
-            <div class="dropdown text-end">
-              <a class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src={require("../uploads/" + user.image)} alt="mdo" width="32" height="32" class="rounded-circle" />
+          <div className="d-flex align-items-center mb-3 mb-lg-0 text-dark text-decoration-none">
+            <div className="dropdown text-end">
+              <a className="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src={require("../uploads/" + user.image)} alt="mdo" width="32" height="32" className="rounded-circle" />
               </a>
-              <ul class="dropdown-menu text-small" >
+              <ul className="dropdown-menu text-small" >
 
-                <li><a class="dropdown-item" >Profile</a></li>
-                <li><hr class="dropdown-divider" /></li>
+                <li><a className="dropdown-item" href="/">Home</a></li>
+                <li><hr className="dropdown-divider" /></li>
                 {authLocal.user && (<>
                   <li className="dropdown-item">
 
-                    <button onClick={() => { authLocal.logout() }}>Logout</button>
+                    <button className="btn" onClick={() => { authLocal.logout() }}>Logout</button>
 
 
                   </li>
@@ -88,7 +94,7 @@ function Navbar() {
               </ul>
             </div>
 
-          </a>
+          </div>
         </div>
       </header>
 
